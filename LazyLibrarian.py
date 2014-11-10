@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os, sys, time, cherrypy, threading, locale
 from lib.configobj import ConfigObj
 
@@ -104,8 +105,8 @@ def main():
     #REMINDER ############ NO LOGGING BEFORE HERE ###############
     #There is no point putting in any logging above this line, as its not set till after initialize.
     lazylibrarian.initialize()
-    
-    #Set the install type (win,git,source) & 
+
+    #Set the install type (win,git,source) &
     #check the version when the application starts
     logger.debug('(LazyLibrarian) Setup install,versions and commit status')
     versioncheck.getInstallType()
@@ -125,7 +126,7 @@ def main():
     if lazylibrarian.DAEMON:
         lazylibrarian.daemonize()
 
-    # Try to start the server. 
+    # Try to start the server.
     webStart.initialize({
                     'http_port': lazylibrarian.HTTP_PORT,
                     'http_host': lazylibrarian.HTTP_HOST,
